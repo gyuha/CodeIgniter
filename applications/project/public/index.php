@@ -50,8 +50,6 @@ if (defined('ENVIRONMENT'))
 	$site_root = dirname(dirname(dirname($public_path)));
 
 
-	define('SPARKPATH', $site_root.'/sparks/');
-
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
