@@ -35,7 +35,7 @@ if (defined('ENVIRONMENT'))
 		case 'development':
 			error_reporting(E_ALL);
 		break;
-	
+
 		case 'testing':
 		case 'production':
 			error_reporting(0);
@@ -45,6 +45,12 @@ if (defined('ENVIRONMENT'))
 			exit('The application environment is not set correctly.');
 	}
 }
+
+	$public_path = dirname(__FILE__);
+	$site_root = dirname(dirname(dirname($public_path)));
+
+
+	define('SPARKPATH', $site_root.'/sparks/');
 
 /*
  *---------------------------------------------------------------
@@ -56,7 +62,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'system';
+	$system_path = $site_root.'/system';
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +78,8 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'application';
+//	$application_folder = 'application';
+	$application_folder = dirname($public_path);
 
 /*
  * --------------------------------------------------------------------
@@ -174,6 +181,8 @@ if (defined('ENVIRONMENT'))
 
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
+
+	define('HTMLPATH', $public_path.'/');
 
 
 	// The path to the "application" folder
